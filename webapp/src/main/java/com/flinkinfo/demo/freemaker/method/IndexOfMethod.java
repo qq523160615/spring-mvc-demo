@@ -1,6 +1,6 @@
-package com.flinkinfo.demo;
+package com.flinkinfo.demo.freemaker.method;
 
-import freemarker.template.SimpleNumber;
+import com.flinkinfo.demo.freemaker.TemplateString;
 import freemarker.template.TemplateMethodModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;

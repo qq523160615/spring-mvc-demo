@@ -1,4 +1,4 @@
-package com.flinkinfo.demo;
+package com.flinkinfo.demo.freemaker;
 
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;

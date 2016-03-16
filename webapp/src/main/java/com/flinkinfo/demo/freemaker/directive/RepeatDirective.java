@@ -1,4 +1,4 @@
-package com.flinkinfo.demo;
+package com.flinkinfo.demo.freemaker.directive;
 
 import freemarker.core.Environment;
 import freemarker.template.*;

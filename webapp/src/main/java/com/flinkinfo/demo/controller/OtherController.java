@@ -1,5 +1,6 @@
-package com.flinkinfo.demo;
+package com.flinkinfo.demo.controller;
 
+import com.flinkinfo.demo.bean.vo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

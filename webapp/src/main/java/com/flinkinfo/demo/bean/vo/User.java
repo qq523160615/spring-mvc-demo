@@ -1,4 +1,4 @@
-package com.flinkinfo.demo;
+package com.flinkinfo.demo.bean.vo;
 
 import com.flinkinfo.demo.annotation.Between;
 import org.hibernate.validator.constraints.Email;
