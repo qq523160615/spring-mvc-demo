@@ -10,9 +10,6 @@ import java.util.List;
 
 public interface UserRepsitory extends JpaRepository<User, String>
 {
-//    @Query(value="select o from User o where o.name")
-//    public User find(String name);
-
     @Query("select a from User a WHERE a.name =?1")
     public User findOneByName(String name);
 
@@ -29,6 +26,7 @@ public interface UserRepsitory extends JpaRepository<User, String>
     @Query(value = "select user from User user where user.name like %?1")
     public List<User> findByNameEndsWith(String name);
 
+    //TODO
     @Query(value = "select user from User user where department = " +
             "(select department from Department department where department.name = ?1)")
     public List<User> findByDepartmentName(String name);
