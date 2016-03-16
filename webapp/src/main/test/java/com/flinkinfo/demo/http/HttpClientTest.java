@@ -29,6 +29,6 @@ public class HttpClientTest extends TestCase
         Response response = httpClient.get();
         byte[] imageByte = response.body().bytes();
 //        new File("Users/jimmy/Desktop/data");
-        ImageUtil.byte2image(imageByte,"/tmp/data/image.png");
+        ImageUtil.byte2image(imageByte,"/tmp/data/image.gif");
     }
 }
