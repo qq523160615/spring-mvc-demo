@@ -22,13 +22,4 @@ public class HttpClientTest extends TestCase
 {
     @Autowired
     HttpClient httpClient;
-
-    @Test
-    public void testGet() throws IOException
-    {
-        Response response = httpClient.get();
-        byte[] imageByte = response.body().bytes();
-//        new File("Users/jimmy/Desktop/data");
-        ImageUtil.byte2image(imageByte,"/tmp/data/image.gif");
-    }
 }
