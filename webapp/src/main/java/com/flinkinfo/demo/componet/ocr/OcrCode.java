@@ -11,16 +11,24 @@ import java.io.IOException;
 /**
  * Ocr验证码识别
  */
-@Component
 public class OcrCode
 {
-    public String vefyCode(String url)
+    public static String vefyCode(String url)
     {
         Ocr.setUp(); // one time setup
         Ocr ocr = new Ocr(); // create a new OCR engine
         ocr.startEngine("eng", Ocr.SPEED_FASTEST); // English
         String s = ocr.recognize(new File[] {new File(url)}, Ocr.RECOGNIZE_TYPE_TEXT, Ocr.OUTPUT_FORMAT_PLAINTEXT);
-        System.out.println("Result: " + s);
+        char[] chars = s.toCharArray();
+        s = "";
+        for (char c : chars)
+        {
+            if(c == '*')
+            {
+                c = '0';
+            }
+            s = s + c;
+        }
         ocr.stopEngine();
         return s;
     }

@@ -21,8 +21,6 @@ public class OtherController
         for(int i =0; i < 10;i++)
         {
             User user = new User();
-       //     user.setName("jimmy" + i);
-        //    user.setAge(i + "");
             users.add(user);
         }
         mv.addObject("users",users);

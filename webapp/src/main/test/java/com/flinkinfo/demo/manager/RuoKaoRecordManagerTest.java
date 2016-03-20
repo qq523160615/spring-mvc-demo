@@ -27,7 +27,7 @@ public class RuoKaoRecordManagerTest extends TestCase
     @Test
     public void testRequestRecord() throws IOException
     {
-        ruoKaoRecordManager.requestRecord();
+        ruoKaoRecordManager.requestRecord("445281199209224619","2015年下半年","林镇辉");
         System.out.println(ruoKaoRecordManager.getRecord());
     }
 
@@ -40,5 +40,15 @@ public class RuoKaoRecordManagerTest extends TestCase
     {
         byte[] imageBytes = ruoKaoRecordManager.requestImageCode();
         ImageUtil.byte2image(imageBytes,"/tmp/data/image.png");
+    }
+
+
+    /**
+     * 测试获得图片验证码字符串
+     */
+    @Test
+    public void testGetImageCodeString() throws IOException
+    {
+        System.out.print(ruoKaoRecordManager.getImageCodeString());
     }
 }

@@ -1,44 +1,25 @@
 package com.flinkinfo.demo.componet.http;
 
-import com.squareup.okhttp.*;
-import org.springframework.stereotype.Component;
+import com.squareup.okhttp.Headers;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
 /**
- * 网络访问
+ * 网络请求接口类
  */
-@Component
-public class HttpClient
+public interface HttpClient
 {
-    private OkHttpClient client = new OkHttpClient();
-
     /**
-     * get请法庭
+     * get请求
      * @param url 请求地址
      * @param headers 请求头
      * @return
      * @throws IOException
      */
-    public Response requestByGet(String url, Headers headers) throws IOException
-    {
-        Request request;
-        if (headers != null)
-        {
-            request = new Request.Builder()
-                    .url(url)
-                    .headers(headers)
-                    .build();
-        }
-        else
-        {
-            request = new Request.Builder()
-                    .url(url)
-                    .build();
-        }
+    public Response requestByGet(String url, Headers headers) throws IOException;
 
-        return client.newCall(request).execute();
-    }
 
     /**
      * post请求
@@ -49,28 +30,5 @@ public class HttpClient
      * @return
      * @throws IOException
      */
-    public Response requestByPost(RequestBody body, String url, Headers header) throws IOException
-    {
-        Request request;
-        //请求参数设置
-        if (header != null)
-        {
-            request = new Request.Builder()
-                    .headers(header)
-                    .url(url)
-                    .post(body)
-                    .build();
-        }
-        else
-        {
-            request = new Request.Builder()
-                    .url(url)
-                    .post(body)
-                    .build();
-        }
-        //发送请求
-        Response response = client.newCall(request).execute();
-        return response;
-    }
-
+    public Response requestByPost(RequestBody body, String url, Headers header) throws IOException;
 }
