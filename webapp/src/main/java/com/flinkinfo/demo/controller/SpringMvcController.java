@@ -5,16 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.File;
 import java.util.List;
 
 @Controller
@@ -79,10 +73,30 @@ public class SpringMvcController
         return "registersuccess";
     }
 
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index()
     {
         return "index";
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/postJson", method = RequestMethod.POST)
+    @ResponseBody
+    public String postJson(@RequestBody String json)
+    {
+        return json;
+    }
+
+    @RequestMapping("/getJson")
+    @ResponseBody
+    public String getJson()
+    {
+        return "{\"name\":\"jimmy\",\"age\":12}";
+    }
+
+    @RequestMapping("/crossOrigin")
+    public String crossOrigin()
+    {
+        return "cross_origin";
+    }
 }
