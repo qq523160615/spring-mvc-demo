@@ -1,12 +1,8 @@
 package com.flinkinfo.demo.componet.ocr;
 
 import com.asprise.ocr.Ocr;
-import org.springframework.stereotype.Component;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Ocr验证码识别

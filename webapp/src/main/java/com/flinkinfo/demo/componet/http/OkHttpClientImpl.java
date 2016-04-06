@@ -4,6 +4,9 @@ import com.squareup.okhttp.*;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 网络访问
@@ -15,19 +18,20 @@ public class OkHttpClientImpl implements HttpClient
 
     /**
      * get请法庭
-     * @param url 请求地址
+     *
+     * @param url     请求地址
      * @param headers 请求头
      * @return
      * @throws IOException
      */
-    public Response requestByGet(String url, Headers headers) throws IOException
+    public Response requestByGet(String url, Map headers) throws IOException
     {
         Request request;
         if (headers != null)
         {
             request = new Request.Builder()
                     .url(url)
-                    .headers(headers)
+                    .headers(Headers.of(headers))
                     .build();
         }
         else
@@ -43,29 +47,30 @@ public class OkHttpClientImpl implements HttpClient
     /**
      * post请求
      *
-     * @param body   请求体
+     * @param params 请求体
      * @param url    请求内容
-     * @param header 请求头 为空时为null
+     * @param headers 请求头 为空时为null
      * @return
      * @throws IOException
      */
-    public Response requestByPost(RequestBody body, String url, Headers header) throws IOException
+    public Response requestByPost(Map params, String url, Map headers) throws IOException
     {
         Request request;
+
         //请求参数设置
-        if (header != null)
+        if (headers != null)
         {
             request = new Request.Builder()
-                    .headers(header)
+                    .headers(Headers.of(headers))
                     .url(url)
-                    .post(body)
+                    .post(mapToBody(params))
                     .build();
         }
         else
         {
             request = new Request.Builder()
                     .url(url)
-                    .post(body)
+                    .post(mapToBody(params))
                     .build();
         }
         //发送请求
@@ -73,4 +78,20 @@ public class OkHttpClientImpl implements HttpClient
         return response;
     }
 
+    private RequestBody mapToBody(Map params)
+    {
+        FormEncodingBuilder body = new FormEncodingBuilder();
+
+        Set<String> keySet = params.keySet();
+        Iterator<String> it = keySet.iterator();
+
+        while (it.hasNext())
+        {
+            String key = it.next();
+            String value = (String) params.get(key);
+            body.add(key, value);
+        }
+
+        return body.build();
+    }
 }
