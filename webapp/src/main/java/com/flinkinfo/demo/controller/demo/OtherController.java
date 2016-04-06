@@ -1,4 +1,4 @@
-package com.flinkinfo.demo.controller;
+package com.flinkinfo.demo.controller.demo;
 
 import com.flinkinfo.demo.bean.vo.User;
 import org.springframework.stereotype.Controller;

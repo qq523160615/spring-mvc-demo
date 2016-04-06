@@ -1,4 +1,4 @@
-package com.flinkinfo.demo.controller;
+package com.flinkinfo.demo.controller.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,7 +23,7 @@ public class UploadFileContorller
     @RequestMapping("/uploadFileIndex")
     public String uploadFileIndex()
     {
-        return "uploadFile_index";
+        return "uploadfile_index";
     }
 
 

@@ -1,4 +1,4 @@
-package com.flinkinfo.demo.controller;
+package com.flinkinfo.demo.controller.demo;
 
 import java.io.IOException;
 import javax.servlet.Filter;

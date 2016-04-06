@@ -1,4 +1,4 @@
-package com.flinkinfo.demo.controller;
+package com.flinkinfo.demo.controller.demo;
 
 import com.flinkinfo.demo.bean.vo.User;
 import org.springframework.stereotype.Controller;
@@ -67,7 +67,7 @@ public class SpringMvcController
             {
                 modelMap.addAttribute("ERR_" + fieldError.getField(), fieldError.getDefaultMessage());
             }
-            return "/register";
+            return "register";
         }
 
         return "registersuccess";
